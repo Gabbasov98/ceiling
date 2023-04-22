@@ -24,6 +24,7 @@
         margin-bottom: 25px;
         width: 300px;
         height: 45px;
+        max-width: 100%;
     }
 </style>
 
@@ -37,27 +38,523 @@
 
 
 
-        <button style="border: 2px solid #000;margin-bottom: 20px;" data-bs-toggle="modal" data-bs-target="#quickOrder">
-            Быстрый заказ
+        <button style="border: 2px solid #000;margin-bottom: 20px;" data-modal="calcSameModal">
+            Модалка - расчет похожего
+        </button>
+        <button style="border: 2px solid #000;margin-bottom: 20px;" data-modal="measureModal">
+            Модалка - замер
+        </button>
+        <button style="border: 2px solid #000;margin-bottom: 20px;" data-modal="callModal">
+            Модалка - обратный звонок
+        </button>
+        <button style="border: 2px solid #000;margin-bottom: 20px;" data-modal="downloadModal">
+            Exit-попап
+        </button>
+        <button style="border: 2px solid #000;margin-bottom: 20px;" data-modal="hintModal">
+            Видео на паузе
         </button>
 
     </div>
 
-    <div class="modal" id="quickOrder" aria-hidden="true">
-        <div class="modal-dialog">
-            <button type="button" class="modal__close" data-bs-dismiss="modal" aria-label="Close">
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M9.55401 10.5L2 2.94599L2.94599 2L10.5 9.55401L18.054 2L19 2.94599L11.446 10.5L19 18.054L18.054 19L10.5 11.446L2.94599 19L2 18.054L9.55401 10.5Z" fill="#333333" />
+    <div class="modal same-modal" id="calcSameModal">
+        <div class="modal__bg _close-modal"></div>
+        <div class="modal__dialog">
+            <button class="_close-modal close-btn">
+                <span>Закрыть расчет</span>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M17 7L7 17M7 7L17 17" stroke="#E31E24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                 </svg>
             </button>
 
+            <div class="same-modal__grid">
+                <div class="same-modal__calc">
+                    <div class="display2">
+                        Расчет натяжного потолка под ваше помещение
+                    </div>
+                    <div class="calc__groups">
+                        <div class="calc-group">
+                            <div class="calc-group__top">
+                                <div class="calc-group__info">
+                                    <div class="calc-group__title text20 bold-text">
+                                        Площадь помещения
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="calc-range">
+                                <div class="calc-range__top">
+                                    <div class="calc-range__text display3 bold-text">
+                                        <span class="calc-range__num">
+                                    61
+                                </span>
+                                        м2
+                                    </div>
+                                    <button class="calc-range__edit">
+                                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M14.9999 8.33326L11.6666 4.99993M2.08325 17.9166L4.90356 17.6032C5.24813 17.5649 5.42042 17.5458 5.58146 17.4937C5.72433 17.4474 5.86029 17.3821 5.98566 17.2994C6.12696 17.2062 6.24954 17.0836 6.49469 16.8385L17.4999 5.83326C18.4204 4.91279 18.4204 3.4204 17.4999 2.49993C16.5795 1.57945 15.0871 1.57945 14.1666 2.49992L3.16136 13.5052C2.91621 13.7503 2.79363 13.8729 2.70045 14.0142C2.61778 14.1396 2.55243 14.2755 2.50618 14.4184C2.45405 14.5794 2.43491 14.7517 2.39662 15.0963L2.08325 17.9166Z" stroke="#798599" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                    </button>
+                                </div>
+                                <div class="calc-range__input">
+                                    <div class="range"></div>
+                                </div>
+                            </div>
 
+                        </div>
+                        <div class="calc-group">
+                            <div class="calc-counts grid-column4">
+                                <div class="count-card">
+                                    <div class="text20 bold-text">
+                                        Светильники
+                                    </div>
 
+                                    <div class='cartcalc'>
+                                        <button class='ccalc-minus'>
+                                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M6.66663 10.0003H13.3333M18.3333 10.0003C18.3333 14.6027 14.6023 18.3337 9.99996 18.3337C5.39759 18.3337 1.66663 14.6027 1.66663 10.0003C1.66663 5.39795 5.39759 1.66699 9.99996 1.66699C14.6023 1.66699 18.3333 5.39795 18.3333 10.0003Z" stroke="#D0D4DC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                            </svg>
+                                        </button>
+                                        <input type='text' value='1'>
+                                        <button class='ccalc-plus'>
+                                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M9.99996 6.66699V13.3337M6.66663 10.0003H13.3333M18.3333 10.0003C18.3333 14.6027 14.6023 18.3337 9.99996 18.3337C5.39759 18.3337 1.66663 14.6027 1.66663 10.0003C1.66663 5.39795 5.39759 1.66699 9.99996 1.66699C14.6023 1.66699 18.3333 5.39795 18.3333 10.0003Z" stroke="#D0D4DC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="count-card">
+                                    <div class="text20 bold-text">
+                                        Трубы
+                                    </div>
+
+                                    <div class='cartcalc'>
+                                        <button class='ccalc-minus'>
+                                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M6.66663 10.0003H13.3333M18.3333 10.0003C18.3333 14.6027 14.6023 18.3337 9.99996 18.3337C5.39759 18.3337 1.66663 14.6027 1.66663 10.0003C1.66663 5.39795 5.39759 1.66699 9.99996 1.66699C14.6023 1.66699 18.3333 5.39795 18.3333 10.0003Z" stroke="#D0D4DC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                            </svg>
+                                        </button>
+                                        <input type='text' value='1'>
+                                        <button class='ccalc-plus'>
+                                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M9.99996 6.66699V13.3337M6.66663 10.0003H13.3333M18.3333 10.0003C18.3333 14.6027 14.6023 18.3337 9.99996 18.3337C5.39759 18.3337 1.66663 14.6027 1.66663 10.0003C1.66663 5.39795 5.39759 1.66699 9.99996 1.66699C14.6023 1.66699 18.3333 5.39795 18.3333 10.0003Z" stroke="#D0D4DC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="count-card">
+                                    <div class="text20 bold-text">
+                                        Углы
+                                    </div>
+
+                                    <div class='cartcalc'>
+                                        <button class='ccalc-minus'>
+                                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M6.66663 10.0003H13.3333M18.3333 10.0003C18.3333 14.6027 14.6023 18.3337 9.99996 18.3337C5.39759 18.3337 1.66663 14.6027 1.66663 10.0003C1.66663 5.39795 5.39759 1.66699 9.99996 1.66699C14.6023 1.66699 18.3333 5.39795 18.3333 10.0003Z" stroke="#D0D4DC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                            </svg>
+                                        </button>
+                                        <input type='text' value='1'>
+                                        <button class='ccalc-plus'>
+                                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M9.99996 6.66699V13.3337M6.66663 10.0003H13.3333M18.3333 10.0003C18.3333 14.6027 14.6023 18.3337 9.99996 18.3337C5.39759 18.3337 1.66663 14.6027 1.66663 10.0003C1.66663 5.39795 5.39759 1.66699 9.99996 1.66699C14.6023 1.66699 18.3333 5.39795 18.3333 10.0003Z" stroke="#D0D4DC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="count-card">
+                                    <div class="text20 bold-text">
+                                        Люстры
+                                    </div>
+
+                                    <div class='cartcalc'>
+                                        <button class='ccalc-minus'>
+                                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M6.66663 10.0003H13.3333M18.3333 10.0003C18.3333 14.6027 14.6023 18.3337 9.99996 18.3337C5.39759 18.3337 1.66663 14.6027 1.66663 10.0003C1.66663 5.39795 5.39759 1.66699 9.99996 1.66699C14.6023 1.66699 18.3333 5.39795 18.3333 10.0003Z" stroke="#D0D4DC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                            </svg>
+                                        </button>
+                                        <input type='text' value='1'>
+                                        <button class='ccalc-plus'>
+                                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M9.99996 6.66699V13.3337M6.66663 10.0003H13.3333M18.3333 10.0003C18.3333 14.6027 14.6023 18.3337 9.99996 18.3337C5.39759 18.3337 1.66663 14.6027 1.66663 10.0003C1.66663 5.39795 5.39759 1.66699 9.99996 1.66699C14.6023 1.66699 18.3333 5.39795 18.3333 10.0003Z" stroke="#D0D4DC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="calc-info__price">
+                            <div class="text20 bold-text">
+                                Ориентировочная стоимость с установкой:
+                            </div>
+                            <div class="display3 bold-text">
+                                16 625–19 450 ₽
+                            </div>
+                            <div class="text16 gray-text2">
+                                139–168 ₽/м2
+                            </div>
+                        </div>
+                        <div class="text16">
+                            Точная стоимость зависит от производителя и марки полотна. Цвет и фактуру можно выбрать любую.
+                        </div>
+                        <form action="" class="calc-info__form">
+                            <div class="text16 bold-text">
+                                Получите подборку из 5–10 подходящих полотен с точными ценами в рамках указанной выше стоимости
+                            </div>
+                            <fieldset class="fg">
+                                <label>Номер телефона мессенджера</label>
+                                <input type="tel" placeholder="+7">
+                            </fieldset>
+                            <button class="calc-info__btn m-btn m-btn-green">
+                                <span>Получить подборку с ценами</span>
+                            </button>
+                            <div class="m-check _green _small">
+                                <input checked type="checkbox">
+                                <label>
+                                    <span>
+                                Согласен с <a href="">Согласен с Политикой конфиденциальности сайта</a>
+                            </span>
+                                </label>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="same-modal__variant">
+                    <div class="same-card">
+                        <div class="same-card__img">
+                            <img src="img/same2.webp" alt="">
+                        </div>
+                        <div class="same-card__content">
+                            <div class="same-card__title text20 bold-text">
+                                Двухуровневый жёлтый натяжной потолок VISP <br> в ванной 24 м
+                            </div>
+                            <div class="same-card__tags">
+                                <div class="tag">
+                                    <span>Тканевый</span>
+                                </div>
+                                <div class="tag">
+                                    <span>Матовый</span>
+                                </div>
+                                <div class="tag">
+                                    <span>Двухуровневый</span>
+                                </div>
+                                <div class="tag">
+                                    <span>Жёлтый</span>
+                                </div>
+                                <div class="tag">
+                                    <span>Жёлтый</span>
+                                </div>
+                                <div class="tag">
+                                    <span>В ванной</span>
+                                </div>
+                                <div class="tag">
+                                    <span>24 м</span>
+                                </div>
+                                <div class="tag">
+                                    <span>VISP</span>
+                                </div>
+                                <div class="tag">
+                                    <span>Германия</span>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal measure-modal" id="measureModal">
+        <div class="modal__bg _close-modal"></div>
+        <div class="modal__dialog">
+            <button class="_close-modal close-btn">
+                <span>Закрыть замер</span>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M17 7L7 17M7 7L17 17" stroke="#E31E24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+            </button>
+
+            <div class="measure-modal__grid grid-column2">
+                <div class="measure-modal__info">
+                    <div class="display2">
+                        Закажите бесплатный замер потолков в удобное для вас время
+                    </div>
+                    <div class="measure__items">
+                        <div class="pluses__item ">
+                            <div class="pluses__item-content">
+                                <div class="pluses__text text16">
+                                    Мастер сделает точный замер благодаря лазерным дальномерам, что предотвратит ошибки в дальнейшем монтаже
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pluses__item ">
+                            <div class="pluses__item-content">
+                                <div class="pluses__text text16">
+                                    Покажет каталоги полотен и освещения, чтобы вы могли выбрать оттенок и фактуру. Порекомендует на примерах технические решения
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pluses__item ">
+                            <div class="pluses__item-content">
+                                <div class="pluses__text text16">
+                                    На замере Вы можете выбрать текстуру полотна, профиль, светильники, трекинговые системы, световые ленты, карнизы. Посмотреть их примеры в интерьере. У мастер с собой целый чемодан образцов
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pluses__item ">
+                            <div class="pluses__item-content">
+                                <div class="pluses__text text16">
+                                    Рассчитает точную стоимость и сроки монтажа потолка
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <form action="" class="calc-info__form">
+                        <div class="text16 bold-text">
+                            Выезд мастера для вас будет бесплатным, даже если вы откажетесь от установки
+                        </div>
+                        <fieldset class="fg">
+                            <label>Ваше имя</label>
+                            <input type="text" placeholder="Роман">
+                        </fieldset>
+                        <fieldset class="fg">
+                            <label>Номер телефона мессенджера</label>
+                            <input type="tel" placeholder="+7">
+                        </fieldset>
+                        <button class="calc-info__btn m-btn m-btn-green">
+                            <span>Пригласить замерщика</span>
+                        </button>
+                        <div class="m-check _green _small">
+                            <input checked type="checkbox">
+                            <label>
+                                <span>
+                                Согласен с <a href="">Согласен с Политикой конфиденциальности сайта</a>
+                            </span>
+                            </label>
+                        </div>
+                    </form>
+                </div>
+                <div class="measure-modal__master">
+                    <div class="measure-by">
+                        <img src="img/man.jpg" alt="" class="measure-by__img">
+                        <div class="measure-by__content">
+                            <div class="measure-by__video">
+                                <a href="videos/Countdown7.mp4" data-fancybox class="measure-by__video-img">
+                                    <img src="img/play.svg" alt="">
+                                </a>
+                                <span class="text16">
+                            Узнайте о преимуществах замера из 3-минутного видео
+                        </span>
+                            </div>
+                            <div class="measure-by__info">
+                                <div class="display3 bold-text">
+                                    Иван Иванов
+                                </div>
+                                <div class="text16">
+                                    Замерщик потолков
+                                </div>
+                                <div class="text20">
+                                    Сделал 537 замеров с 2018 года
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal call-modal" id="callModal">
+        <div class="modal__bg _close-modal"></div>
+        <div class="modal__dialog">
+            <button class="_close-modal close-btn">
+                <span>Закрыть</span>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M17 7L7 17M7 7L17 17" stroke="#E31E24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+            </button>
+
+            <div class="call-modal__grid">
+                <div class="call-modal__master">
+                    <div class="master">
+                        <div class="master__img">
+                            <img src="img/master.webp" alt="">
+                        </div>
+                        <div class="ceo-info">
+                            <div class="text20 bold-text">
+                                Григорий Овчинников
+                            </div>
+                            <div class="text16">
+                                Помог подобрать 450
+                                потолков за 4 года
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="call-modal__info">
+                    <div class="display2">
+                        Перезвоним в течение 20 минут и ответим
+                        на вопросы
+                    </div>
+                    <div class="measure__items">
+                        <div class="pluses__item ">
+                            <div class="pluses__item-content">
+                                <div class="pluses__text text16">
+                                    Подскажем, какой материал и бренд полотна выбрать под ваш бюджет
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pluses__item ">
+                            <div class="pluses__item-content">
+                                <div class="pluses__text text16">
+                                    Расскажем про возможности и технологии
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pluses__item ">
+                            <div class="pluses__item-content">
+                                <div class="pluses__text text16">
+                                    Рассчитаем ориентировочную стоимость
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <form action="" class="calc-info__form">
+                        <div class="text16 bold-text">
+                            Выезд мастера для вас будет бесплатным, даже если вы откажетесь от установки
+                        </div>
+                        <fieldset class="fg">
+                            <label>Ваше имя</label>
+                            <input type="text" placeholder="Роман">
+                        </fieldset>
+                        <fieldset class="fg">
+                            <label>Номер телефона мессенджера</label>
+                            <input type="tel" placeholder="+7">
+                        </fieldset>
+                        <button class="calc-info__btn m-btn m-btn-green">
+                            <span>Пригласить замерщика</span>
+                        </button>
+                        <div class="m-check _green _small">
+                            <input checked type="checkbox">
+                            <label>
+                                <span>
+                                Согласен с <a href="">Согласен с Политикой конфиденциальности сайта</a>
+                            </span>
+                            </label>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal download-modal" id="downloadModal">
+        <div class="modal__bg _close-modal"></div>
+        <div class="modal__dialog">
+            <button class="_close-modal close-btn">
+                <span>Закрыть</span>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M17 7L7 17M7 7L17 17" stroke="#E31E24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+            </button>
+
+            <div class="download-modal__grid">
+                <div class="download-modal__info">
+                    <form class="catalog-download__form">
+                        <h3 class="display3">
+                            В 1 клик скачайте каталог «<b>100 самых популярных потолков</b> 2023 года»
+                        </h3>
+                        <p class="text16">
+                            и получите гарантированную <b>скидку 5% <br> на все модели</b> в каталоге
+                        </p>
+                        <fieldset class="fg">
+                            <label>Номер телефона мессенджера</label>
+                            <input type="tel" placeholder="+7">
+                        </fieldset>
+                        <button class="catalog-download__btn m-btn m-btn-green">
+                            <span>Получить каталог</span>
+                        </button>
+                        <div class="m-check _small _green">
+                            <input type="checkbox" checked>
+                            <label>
+                                <span>
+                                            Согласен с 
+                                            <a href="">Политикой конфиденциальности сайта</a>
+                                        </span>
+                            </label>
+                        </div>
+                    </form>
+
+                </div>
+                <div class="download-modal__media">
+                    <div class="download-modal__img">
+                        <img src="img/catalog.webp" alt="">
+                    </div>
+                    <div class="catalog-contain">
+                        <div class="catalog-contain__inner">
+                            <ul class="m-list">
+                                <li>Классические</li>
+                                <li>Цветные</li>
+                                <li>С фотопечатью</li>
+                                <li>Парящие</li>
+                                <li>20+ цветов</li>
+                                <li>Резные</li>
+                                <li>С подстветкой</li>
+                                <li>Зведное небо</li>
+                                <li>Double vision</li>
+                            </ul>
+                            <div class="catalog-contain__nav">
+                                <a href="" class="catalog-contain__link">
+                                    <img src="img/pdf.svg" alt="">
+                                    <div class="text16">
+                                        Каталог <span class="gray-text2">(pdf, 180кб)</span>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal hint-modal" id="hintModal">
+        <div class="modal__bg _close-modal"></div>
+        <div class="modal__dialog">
+            <button class="_close-modal close-btn">
+                <span>Закрыть</span>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M17 7L7 17M7 7L17 17" stroke="#E31E24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+            </button>
+
+            <div class="hint-modal__grid">
+                <div class="display4">
+                    Рассчитайте ориентировочную стоимость потолка, ответив на 7 вопросов
+                </div>
+                <div class="text16">
+                    Вы получите предварительный расчёт в 3 вариантах с точностью 80%. <br> А также подарок ценой до 5 000 рублей на выбор
+                </div>
+                <button class="hint-modal__btn m-btn m-btn-green">
+                    <span>Рассчитать стоимость</span>
+                </button>
+            </div>
         </div>
     </div>
 
 
-    <!-- <div class="modal-backdrop show"></div> -->
+
     <!--  -->
     <script src="js/libs.min.js"></script>
     <script src="js/main.min.js"></script>
